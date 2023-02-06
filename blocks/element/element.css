@@ -1,0 +1,9 @@
+.element{
+    list-style-type: none;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    background: #FFFFFF;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
