@@ -5,6 +5,6 @@
 Сайт расскажет Вам о красивых местах в стране под названием Россия!
 Проект сделан с помощью HTML, CSS5 и немножечко JavaScript, макет - Figma.
 
-* [Ссылка на проект](https://texnarrr.github.io/russian-travel)
+* [Ссылка на проект](https://texnarrr.github.io/mesto)
 
 Всем приятного просмотра!
