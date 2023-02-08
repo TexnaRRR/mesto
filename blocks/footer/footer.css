@@ -7,8 +7,15 @@
     color: #545454;
 }
 
+@media screen and (max-width: 900px) {
+    .footer {
+        max-width: 581px;
+    }
+  }
+
 @media screen and (max-width: 670px) {
     .footer {
+        max-width: 282px;
         padding-top: 48px;
         padding-bottom: 36px;
     }

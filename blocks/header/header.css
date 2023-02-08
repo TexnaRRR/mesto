@@ -9,7 +9,7 @@
   
   @media screen and (max-width: 900px) {
     .header {
-      max-width: calc(900px - 2*50px);
+      max-width: 581px;;
     }
   }
   
