@@ -1,4 +1,8 @@
 .element__content{
-    border-radius: 10px 10px 0px 0px;
     object-fit: cover;
+    width: 246px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
