@@ -40,14 +40,14 @@ const nameProfyleInput = formElement.querySelector('.popup__input_type_name');
 const jobProfyleInput = formElement.querySelector('.popup__input_type_job');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const closeButton = document.querySelectorAll('.popup__button-close');
+const closeButtons = document.querySelectorAll('.popup__button-close');
 const closePopupImage = document.querySelector('.popup-image__button-close');
 const popupImage = document.querySelector('.popup-image');
 const popupFullImage = popupImage.querySelector('.popup-image__full-image');
 const titleImage = popupImage.querySelector('.popup-image__title');
 
 
-closeButton.forEach((button) => {
+closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => {
     closePopup(popup);
