@@ -25,7 +25,7 @@ const initialCards = [
   }
 ];
 
-const popupOverlay = document.querySelectorAll('.popup');
+const popupOverlays = document.querySelectorAll('.popup');
 
 const cardTemplate = document.querySelector('.element-cards').content;
 const cardsElement = document.querySelector('.elements');
@@ -38,7 +38,7 @@ const closeAddForm = document.querySelector('.popup__button-close_add');
 const titleInput = formAdd.querySelector('.popup__input_type_title');
 const linkInput = formAdd.querySelector('.popup__input_type_link');
 
-const OpenEditButton = document.querySelector('.profile__button');
+const openEditButton = document.querySelector('.profile__button');
 const popupProfileEdit = document.querySelector('.popup_profile-edit');
 const formElement = document.querySelector('.popup__form-profile-edit');
 const nameProfyleInput = formElement.querySelector('.popup__input_type_name');
@@ -52,6 +52,7 @@ const popupImage = document.querySelector('.popup-image');
 const popupFullImage = popupImage.querySelector('.popup-image__full-image');
 const titleImage = popupImage.querySelector('.popup-image__title');
 
+const submitButtonAdd = popupAdd.querySelector('.popup__button-submit_add');
 const submitButtonProfileEdit = popupProfileEdit.querySelector('.popup__button-submit_profile-edit');
 
 const validationConst = {
@@ -63,6 +64,7 @@ const validationConst = {
   errorClass: 'popup__input-error_active'
 };
 
+const inputList = Array.from(popupProfileEdit.querySelectorAll(validationConst.inputSelector));
 
 enableValidation(validationConst);
 
@@ -73,7 +75,7 @@ closeButtons.forEach((button) => {
   })
 });
 
-popupOverlay.forEach((popup) => {
+popupOverlays.forEach((popup) => {
   popup.addEventListener('click', (event) => {
     if (event.target === event.currentTarget) {
       closePopup(popup);
@@ -88,7 +90,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.addEventListener("keydown", closePopupEsc);
+  document.removeEventListener('keydown', closePopupEsc);
 };
 
 function closePopupEsc(event) {
@@ -145,19 +147,19 @@ formAdd.addEventListener('submit', (evt) => {
   evt.target.reset();
 });
 formElement.addEventListener('submit', handleEditProfileFormSubmit);
-OpenEditButton.addEventListener('click', () => {
+openEditButton.addEventListener('click', () => {
   nameProfyleInput.value = profileName.textContent;
   jobProfyleInput.value = profileJob.textContent;
   openPopup(popupProfileEdit);
   resetValidationErrors (validationConst, popupProfileEdit)
-  const inputList = Array.from(popupProfileEdit.querySelectorAll(validationConst.inputSelector));
+  // const inputList = Array.from(popupProfileEdit.querySelectorAll(validationConst.inputSelector));
   toggleButtonState(validationConst, inputList, submitButtonProfileEdit);
 });
 addButton.addEventListener('click', () => {
   openPopup(popupAdd);
   formAdd.reset();
   resetValidationErrors (validationConst, popupAdd)
-  const inputList = Array.from(popupAdd.querySelectorAll(validationConst.inputSelector));
+  // const inputList = Array.from(popupAdd.querySelectorAll(validationConst.inputSelector));
   toggleButtonState(validationConst, inputList, submitButtonAdd);
 });
 
