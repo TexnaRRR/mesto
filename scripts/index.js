@@ -64,7 +64,8 @@ const validationConst = {
   errorClass: 'popup__input-error_active'
 };
 
-const inputList = Array.from(popupProfileEdit.querySelectorAll(validationConst.inputSelector));
+const inputListProf = Array.from(popupProfileEdit.querySelectorAll(validationConst.inputSelector));
+const inputListAdd = Array.from(popupAdd.querySelectorAll(validationConst.inputSelector));
 
 enableValidation(validationConst);
 
@@ -153,14 +154,14 @@ openEditButton.addEventListener('click', () => {
   openPopup(popupProfileEdit);
   resetValidationErrors (validationConst, popupProfileEdit)
   // const inputList = Array.from(popupProfileEdit.querySelectorAll(validationConst.inputSelector));
-  toggleButtonState(validationConst, inputList, submitButtonProfileEdit);
+  toggleButtonState(validationConst, inputListProf, submitButtonProfileEdit);
 });
 addButton.addEventListener('click', () => {
   openPopup(popupAdd);
   formAdd.reset();
   resetValidationErrors (validationConst, popupAdd)
   // const inputList = Array.from(popupAdd.querySelectorAll(validationConst.inputSelector));
-  toggleButtonState(validationConst, inputList, submitButtonAdd);
+  toggleButtonState(validationConst, inputListAdd, submitButtonAdd);
 });
 
 initialCards.forEach(function(element) {
