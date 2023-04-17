@@ -71,7 +71,7 @@ function resetErrorMessage(validationConst, popup) {
   });
 };
 
-function resetValidationErrors (validationConst, popup) {
+function resetValidationErrors(validationConst, popup) {
   resetErrorInput(validationConst, popup);
   resetErrorMessage(validationConst, popup)
 };

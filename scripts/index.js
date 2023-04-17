@@ -41,9 +41,9 @@ const linkInput = formAdd.querySelector('.popup__input_type_link');
 
 const cardsContainer = document.querySelector('.elements');
 const popupProfileEdit = document.querySelector('.popup_profile-edit');
-const formElement = document.querySelector('.popup__form-profile-edit');
-const nameProfyleInput = formElement.querySelector('.popup__input_type_name');
-const jobProfyleInput = formElement.querySelector('.popup__input_type_job');
+const profileForm = document.querySelector('.popup__form-profile-edit');
+const nameProfyleInput = profileForm.querySelector('.popup__input_type_name');
+const jobProfyleInput = profileForm.querySelector('.popup__input_type_job');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const closeButtons = document.querySelectorAll('.popup__button-close');
@@ -62,7 +62,7 @@ const validationConfig = {
   errorClass: 'popup__input-error_active'
 };
 
-const formValidatorProfileEdit = new FormValidator(validationConfig, formElement);
+const formValidatorProfileEdit = new FormValidator(validationConfig, profileForm);
 formValidatorProfileEdit.enableValidation();
 
 
@@ -146,11 +146,10 @@ function createCard(title, image, templateSelector) {
   return card.generateCard();
 }
 
-
 formAdd.addEventListener('submit', (evt) => {
   saveNewCard(evt);
   closePopup(popupAdd);
 });
-formElement.addEventListener('submit', handleEditProfileFormSubmit);
+profileForm.addEventListener('submit', handleEditProfileFormSubmit);
 editButton.addEventListener('click', () => openPopupEditProfile());
 addButton.addEventListener('click', () => openPopupAdd());
