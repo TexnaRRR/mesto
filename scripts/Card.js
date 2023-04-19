@@ -1,9 +1,9 @@
 
 class Card {
-  constructor(title, image, templateSelector, handleCardClick) {
+  constructor(title, image, handleCardClick) {
     this._title = title;
     this._image = image;
-    this._templateSelector = templateSelector;
+    this._templateSelector = '.element-cards';
     this._template = '.element';
     this._handleCardClick = handleCardClick;
   }
