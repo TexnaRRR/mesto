@@ -14,13 +14,14 @@ formValidatorProfileEdit.enableValidation();
 const formValidatorAddForm = new FormValidator(validationConfig, formAdd);
 formValidatorAddForm.enableValidation();
 
-
+function renderCard(item) {
+  section.addItem(createCard(item.name, item.link, handleCardClick));
+  }
 
 const section = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = createCard(item.name, item.link, handleCardClick);
-    section.addItem(card);
+    renderCard(item);
   }
 },
   '.elements');
@@ -32,7 +33,7 @@ const popupWithImage = new PopupWithImage('.popup-image');
 const formPopupAdd = new PopupWithForm({
   popupSelector: '.popup_add',
   handleFormSubmit: (item) => {
-    section.addItem(createCard(item.title, item.link, handleCardClick));
+    renderCard(item);
   }
 })
 
@@ -53,9 +54,12 @@ formPopupAdd.setEventListeners();
 formPopupProfileEdit.setEventListeners();
 
 function openPopupEditProfile() {
+  const user = userInfo.getUserInfo();
+  const name = user.name;
+  const job = user.job;
   formPopupProfileEdit.open();
-  nameProfyleInput.value = userInfo.getUserInfo().name;
-  jobProfyleInput.value = userInfo.getUserInfo().job;
+  nameProfyleInput.value = name;
+  jobProfyleInput.value = job;
   formValidatorProfileEdit.resetValidationErrors();
   formValidatorProfileEdit.toggleButtonState();
 }
@@ -70,7 +74,7 @@ function handleCardClick (title, image) {
   popupFullImage.src = image
   popupFullImage.alt = title
   titleImage.textContent = title
-  
+  popupWithImage.open(title, image);
 }
 
 function createCard(title, image, handleCardClick) {
