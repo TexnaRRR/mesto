@@ -44,6 +44,8 @@ export const initialCards = [
   export const profileName = document.querySelector('.profile__name');
   export const profileJob = document.querySelector('.profile__job');
   export const closeButtons = document.querySelectorAll('.popup__button-close');
+  export const updateAvatarButton = document.querySelector('.profile__avatar-edit');
+  export const popupUpdateAvatar = document.querySelector('.popup_update-avatar');
   
   export const popupImage = document.querySelector('.popup-image');
   export const popupFullImage = popupImage.querySelector('.popup-image__full-image');

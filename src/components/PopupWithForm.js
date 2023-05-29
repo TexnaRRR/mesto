@@ -6,6 +6,7 @@ export default class PopupWithImage extends Popup {
         this._handleFormSubmit = handleFormSubmit;
         this._form = this._popup.querySelector('.popup__form');
         this._inputList = this._form.querySelectorAll('.popup__input');
+        this._submit = this._popup.querySelector('.popup__button-submit');
       }
 
       _getInputValues() {
@@ -13,7 +14,6 @@ export default class PopupWithImage extends Popup {
         this._inputList.forEach(input => {
           formValues[input.name] = input.value;
         });
-    
         return formValues;
       }
 
@@ -29,5 +29,15 @@ export default class PopupWithImage extends Popup {
       close() {
         super.close();
         this._form.reset();
+      }
+
+      loading(isLoading) {
+        if (isLoading) {
+          this._submit.textContent = 'Сохранение...';
+          this._submit.disabled = true;
+        } else {
+          this._submit.textContent = 'Сохранить';
+          this._submit.disabled = false;
+        }
       }
 }
