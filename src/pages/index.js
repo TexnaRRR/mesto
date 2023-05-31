@@ -56,7 +56,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
       })
     },
     (card) => {
-      api.putLike(card.getCardId())
+      return api.putLike(card.getCardId())
         .then((res) => {
           card.toggleLike(res);
         })
@@ -65,7 +65,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
         })
     },
     (card) => {
-      api.deleteLike(card.getCardId())
+      return api.deleteLike(card.getCardId())
         .then((res) => {
           card.toggleLike(res);
         })
@@ -126,7 +126,7 @@ formValidatorUpdateAvatar.enableValidation();
       formPopupProfileEdit.loading(true);
       api.setUserInfo({ name, job })
         .then((data) => {
-          userInfo.setUserInfo({ name: data.name, about: data.about, avatar: data.avatar });
+          userInfo.setUserInfo({ name: data.name, about: data.about, avatar: data.avatar, id: data.id });
           formPopupProfileEdit.close();
         })
         .catch((err) => {
@@ -144,7 +144,7 @@ formValidatorUpdateAvatar.enableValidation();
       updateAvatar.loading(true);
       api.updateUserAvatar({ avatar })
         .then((data) => {
-          userInfo.setUserInfo({ name: data.name, about: data.about, avatar: data.avatar });
+          userInfo.setUserInfo({ name: data.name, about: data.about, avatar: data.avatar, id: data.id });
           updateAvatar.close();
         })
         .catch((err) => {

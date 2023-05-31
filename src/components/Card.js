@@ -49,11 +49,14 @@ class Card {
 
   _toggleButtonLike() {
     if (!this._likeButton.classList.contains('element__button-like_active')) {
-      this._likeButton.classList.add('element__button-like_active');
-      this.putLike(this);
+      this.putLike(this).then(()=>{
+        this._likeButton.classList.add('element__button-like_active');
+      });
     } else {
-      this._likeButton.classList.remove('element__button-like_active');
-      this.deleteLike(this);
+      this.deleteLike(this).then(()=>{
+        this._likeButton.classList.remove('element__button-like_active');
+      })
+      // .then()=>{this.d};
     }
   }
 
